@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "/WRcXgky44HquQKkYXcRbjDz6Doo0L/hbmDWr8dYQxY=",
+  "Source": "PcWeb.Api",
+  "BasePath": "_content/PcWeb.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
