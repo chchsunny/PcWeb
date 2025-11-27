@@ -96,3 +96,8 @@ pipeline {
 - 效能優化  
 - 錯誤處理與降級機制  
 - 文件撰寫  
+
+---
+## 頁面展示
+
+<img width="1919" height="752" alt="image" src="https://github.com/user-attachments/assets/9519a175-da75-46ed-bd1e-e7cf7084c7da" />
