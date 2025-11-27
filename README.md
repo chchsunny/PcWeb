@@ -95,4 +95,9 @@ pipeline {
 - CI/CD Pipeline 建置  
 - 效能優化  
 - 錯誤處理與降級機制  
-- 文件撰寫  
+- 文件撰寫
+
+---
+## 頁面展示
+<img width="1919" height="625" alt="image" src="https://github.com/user-attachments/assets/b899590c-8303-4421-a057-29c34de21147" />
+
