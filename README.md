@@ -16,8 +16,7 @@
 - Next.js – React 框架  
 - TypeScript – 型別安全  
 
-### DevOps
-- Docker – 容器化部署  
+### DevOps  
 - Jenkins – CI/CD 自動化  
 - Jira – 專案管理與 Sprint 規劃  
 
@@ -98,6 +97,25 @@ pipeline {
 - 文件撰寫  
 
 ---
+## 啟動
+
+### Docker
+<img width="1207" height="152" alt="image" src="https://github.com/user-attachments/assets/56f5f4e6-0401-4e5a-b814-251b0deae0d8" />
+
+### 前端
+```bash
+npm run dev
+
+```
+
+### 後端
+```bash
+dotnet run 
+
+```
+
+---
+
 ## 頁面展示
 
 <img width="1919" height="752" alt="image" src="https://github.com/user-attachments/assets/9519a175-da75-46ed-bd1e-e7cf7084c7da" />
