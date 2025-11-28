@@ -118,4 +118,4 @@ dotnet run
 
 ## 頁面展示
 
-<img width="1919" height="752" alt="image" src="https://github.com/user-attachments/assets/9519a175-da75-46ed-bd1e-e7cf7084c7da" />
+<img width="1919" height="875" alt="image" src="https://github.com/user-attachments/assets/a5b56a5d-5ddd-42a5-b858-945a0516bc9d" />
