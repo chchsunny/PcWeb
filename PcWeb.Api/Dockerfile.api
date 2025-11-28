@@ -1,0 +1,29 @@
+# 1. Build stage 
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# 複製 csproj 並還原 NuGet 套件
+COPY PcWeb.Api.csproj ./
+RUN dotnet restore
+
+# 再把其餘原始碼複製進來
+COPY . .
+
+# 建置為 Release
+RUN dotnet publish -c Release -o /app/publish
+
+
+# 2. Runtime stage 
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
+
+# 只用 HTTP, 監聽 5261
+ENV ASPNETCORE_URLS=http://+:5261
+ENV ASPNETCORE_ENVIRONMENT=Development
+
+# 複製 build 出來的成果
+COPY --from=build /app/publish .
+
+EXPOSE 5261
+
+ENTRYPOINT ["dotnet", "PcWeb.Api.dll"]

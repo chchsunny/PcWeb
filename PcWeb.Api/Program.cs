@@ -48,6 +48,23 @@ builder.Services.AddHostedService<PcWeb.Api.Services.ElasticsearchIndexingServic
 
 var app = builder.Build();
 
+// 啟動時自動套用 EF Core Migrations
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    try
+    {
+        // 如果 PcWebDb 是空的，自動建立資料庫
+        db.Database.Migrate();
+        Console.WriteLine(" Database migration completed.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(" Database migration failed: " + ex.Message);
+    }
+}
+
 // 開發環境用 Swagger
 if (app.Environment.IsDevelopment())
 {
@@ -55,13 +72,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
 
 app.UseCors();
 
 app.UseAuthorization();
 
-// 這行讓所有 Controller 的路由生效
 app.MapControllers();
 
 app.Run();

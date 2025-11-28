@@ -17,8 +17,10 @@
 - TypeScript – 型別安全  
 
 ### DevOps  
+- Docker – 容器化部署
 - Jenkins – CI/CD 自動化  
 - Jira – 專案管理與 Sprint 規劃  
+
 
 ---
 
@@ -99,21 +101,19 @@ pipeline {
 ---
 ## 啟動
 
-### Docker
-<img width="1207" height="152" alt="image" src="https://github.com/user-attachments/assets/56f5f4e6-0401-4e5a-b814-251b0deae0d8" />
+本專案支援 Docker 一鍵啟動
 
-### 前端
 ```bash
-npm run dev
-
+docker compose up --build
 ```
+### 前端介面
+[http://localhost:3000](http://localhost:3000)
 
-### 後端
-```bash
-dotnet run 
+### API
+[http://localhost:5261](http://localhost:5261)
 
-```
-
+### Swagger
+[http://localhost:5261/swagger](http://localhost:5261/swagger)
 ---
 
 ## 頁面展示

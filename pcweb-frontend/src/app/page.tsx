@@ -197,7 +197,10 @@ export default function PartsPage() {
   useEffect(() => {
     async function loadParts() {
       try {
-        const res = await fetch("http://localhost:5261/api/store/parts");
+        const API_BASE_URL =
+          process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:5261";
+
+        const res = await fetch(`${API_BASE_URL}/api/store/parts`);
         if (!res.ok) {
           throw new Error("無法取得組件資料");
         }

@@ -1,0 +1,66 @@
+version: "3.9"
+
+services:
+  pcweb-frontend:
+    build:
+      context: ./pcweb-frontend
+      dockerfile: Dockerfile.frontend
+    container_name: pcweb-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: "http://pcweb-api:5261"
+    depends_on:
+      - pcweb-api
+
+  pcweb-api:
+    build:
+      context: ./PcWeb.Api
+      dockerfile: Dockerfile.api
+    container_name: pcweb-api
+    ports:
+      - "5261:5261"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+
+      # --- 覆寫 appsettings.json ---
+      ConnectionStrings__DefaultConnection: "Server=pcweb-mssql,1433;Database=PcWebDb;User Id=sa;Password=@Sunny106;TrustServerCertificate=True;"
+      ConnectionStrings__Redis: "pcweb-redis:6379"
+      Elasticsearch__Url: "http://pcweb-es7:9200"
+    depends_on:
+      - pcweb-mssql
+      - pcweb-redis
+      - pcweb-es7
+
+  pcweb-mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: pcweb-mssql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "@Sunny106"
+      MSSQL_PID: "Express"
+    ports:
+      - "1433:1433"
+    volumes:
+      - pcweb-mssql-data:/var/opt/mssql
+
+  pcweb-redis:
+    image: redis:7
+    container_name: pcweb-redis
+    ports:
+      - "6379:6379"
+
+  pcweb-es7:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.25
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+
+    ports:
+      - "9200:9200"
+    volumes:
+      - pcweb-es7-data:/usr/share/elasticsearch/data
+
+volumes:
+  pcweb-mssql-data:
+  pcweb-es7-data:
