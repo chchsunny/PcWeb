@@ -84,18 +84,14 @@ pipeline {
 - 資料庫設計與建立  
 - 基本 CRUD API 開發  
 - 前端框架建置  
-- Docker 環境設定  
 
 ### Sprint 2 – 快取與搜尋
 - Redis 快取整合  
 - Elasticsearch 搜尋功能  
-- 前端搜尋介面  
-- 分類篩選功能  
 
 ### Sprint 3 – 優化與部署
 - CI/CD Pipeline 建置  
-- 效能優化  
-- 錯誤處理與降級機制  
+- Docker 容器化      
 - 文件撰寫  
 
 ---
