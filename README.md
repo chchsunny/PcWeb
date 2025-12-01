@@ -1,6 +1,6 @@
 # PcWeb – 電腦組件管理系統
 
-一個使用 ASP.NET Core Web API 和 Next.js 打造的電腦組件管理與搜尋系統，整合 Redis 快取、Elasticsearch 全文搜尋等現代化技術。
+一個使用 ASP.NET Core Web API 和 Next.js 打造的電腦組件管理與搜尋系統，整合 Redis 快取、Elasticsearch 全文搜尋等技術。
 
 ---
 
