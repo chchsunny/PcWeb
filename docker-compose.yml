@@ -22,9 +22,7 @@ services:
       - "5261:5261"
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
-
-      # --- 覆寫 appsettings.json ---
-      ConnectionStrings__DefaultConnection: "Server=pcweb-mssql,1433;Database=PcWebDb;User Id=sa;Password=@Sunny106;TrustServerCertificate=True;"
+      ConnectionStrings__DefaultConnection: "Server=pcweb-mssql,1433;Database=PcWebDb;User Id=sa;Password=${DB_PASSWORD};TrustServerCertificate=True;"
       ConnectionStrings__Redis: "pcweb-redis:6379"
       Elasticsearch__Url: "http://pcweb-es7:9200"
     depends_on:
@@ -37,7 +35,7 @@ services:
     container_name: pcweb-mssql
     environment:
       ACCEPT_EULA: "Y"
-      MSSQL_SA_PASSWORD: "@Sunny106"
+      MSSQL_SA_PASSWORD: "${DB_PASSWORD}" 
       MSSQL_PID: "Express"
     ports:
       - "1433:1433"
@@ -55,7 +53,6 @@ services:
     environment:
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
-
     ports:
       - "9200:9200"
     volumes:

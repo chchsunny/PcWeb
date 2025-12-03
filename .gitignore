@@ -1,0 +1,50 @@
+# pcweb-frontend
+
+# dependencies
+pcweb-frontend/node_modules/
+pcweb-frontend/.pnp/
+pcweb-frontend/.pnp.*
+pcweb-frontend/.yarn/*
+!pcweb-frontend/.yarn/patches
+!pcweb-frontend/.yarn/plugins
+!pcweb-frontend/.yarn/releases
+!pcweb-frontend/.yarn/versions
+
+# testing
+pcweb-frontend/coverage/
+
+# next.js output
+pcweb-frontend/.next/
+pcweb-frontend/out/
+
+# production build
+pcweb-frontend/build/
+
+# misc
+pcweb-frontend/.DS_Store
+pcweb-frontend/*.pem
+
+# debug
+pcweb-frontend/npm-debug.log*
+pcweb-frontend/yarn-debug.log*
+pcweb-frontend/yarn-error.log*
+pcweb-frontend/.pnpm-debug.log*
+
+# env files
+pcweb-frontend/.env*
+pcweb-frontend/.env.*
+
+# vercel
+pcweb-frontend/.vercel/
+
+# typescript
+pcweb-frontend/*.tsbuildinfo
+pcweb-frontend/next-env.d.ts
+
+# PcWeb.Api
+
+PcWeb.Api/bin/
+PcWeb.Api/obj/
+PcWeb.Api/appsettings.Development.json
+
+.env
