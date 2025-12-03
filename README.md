@@ -61,15 +61,13 @@ pipeline {
             }
         }
 
-        stage('Restore') {
+        stage('Docker Compose Up') {
             steps {
-                powershell 'dotnet restore'
-            }
-        }
+                powershell '''
+                    docker compose down || echo "no containers to stop"
 
-        stage('Build') {
-            steps {
-                powershell 'dotnet build --configuration Release'
+                    docker compose up --build -d
+                '''
             }
         }
     }
