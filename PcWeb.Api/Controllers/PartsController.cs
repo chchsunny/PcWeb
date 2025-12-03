@@ -55,7 +55,7 @@ namespace PcWeb.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Part>> CreatePart([FromBody] Part part)
         {
-            // Id 由資料庫自動產生，確保不被前端亂給
+            // Id 由資料庫自動產生
             part.Id = 0;
 
             _context.Parts.Add(part);
@@ -67,7 +67,6 @@ namespace PcWeb.Api.Controllers
             // 新增到 Elasticsearch
             await _elasticClient.IndexDocumentAsync(part);
 
-            // 回傳 201 Created + 新增的資料
             return CreatedAtAction(nameof(GetPart), new { id = part.Id }, part);
         }
 

@@ -41,12 +41,12 @@ namespace PcWeb.Api.Controllers
                 return Ok(cachedParts);
             }
 
-            // 快取未命中,從資料庫查詢
+            // 快取沒資料,從資料庫查詢
             var parts = await _context.Parts
                 .AsNoTracking()
                 .ToListAsync();
 
-            // 儲存到快取 (30分鐘過期)
+            // 儲存到快取
             var options = new DistributedCacheEntryOptions
             {
                 AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30)
